@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于南宫28 · 一段温和的站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f1f3f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.65;
+            color: #2c3e4f;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrap {
+            max-width: 860px;
+            width: 100%;
+        }
+
+        /* 卡片系统 —— 浅灰背景、细边框、柔和阴影 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e7ed;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        /* hero 开场 —— 故事叙述式 */
+        .hero {
+            background: #f8faff;
+            border: 1px solid #dee5ef;
+            border-radius: 24px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+            padding: 2.4rem 2.2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .hero-short {
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: #4a5b6b;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #8a9bb0;
+            padding-left: 1.2rem;
+        }
+
+        .hero-short strong {
+            color: #1f2a36;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 450;
+            color: #1c2a38;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: #3f5368;
+            max-width: 90%;
+        }
+
+        /* 段落内部链接自然 */
+        a {
+            color: #2d5f7a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            border-bottom-color: #2d5f7a;
+        }
+
+        /* 承接段落 */
+        .intro-text {
+            font-size: 1rem;
+            color: #2e4155;
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-text:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 特点列表 —— 干净、呼吸感 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-marker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8edf4;
+            color: #1f3649;
+            min-width: 28px;
+            height: 28px;
+            border-radius: 40%;
+            font-size: 1rem;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-content strong {
+            display: block;
+            font-weight: 600;
+            color: #1f2e3f;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-content span {
+            font-size: 0.95rem;
+            color: #405668;
+        }
+
+        /* 温和结尾卡片 */
+        .ending-note {
+            background: #fafcff;
+            border: 1px solid #e0e7f0;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            margin-top: 0.5rem;
+            font-style: normal;
+        }
+
+        .ending-note p {
+            margin-bottom: 0.8rem;
+        }
+
+        .ending-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .small-note {
+            font-size: 0.9rem;
+            color: #5f7488;
+            background: #f3f7fc;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+                border-radius: 16px;
+            }
+            .hero {
+                padding: 1.6rem 1.2rem;
+            }
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .hero-desc {
+                max-width: 100%;
+            }
+            .feature-list li {
+                flex-wrap: wrap;
+            }
+            .ending-note {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-short {
+                font-size: 1rem;
+                padding-left: 1rem;
+            }
+            .hero-title {
+                font-size: 1.4rem;
+            }
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 1.6rem 0 1rem 0;
+        }
+
+        .footer-meta {
+            font-size: 0.85rem;
+            color: #8195aa;
+            text-align: center;
+            margin-top: 2rem;
+            padding: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 故事叙述式：开场短句 -->
+    <div class="hero">
+        <div class="hero-short">
+            ⏳ 从一次浏览开始 —— 很多人最初只是好奇。
+        </div>
+        <div class="hero-title">
+            关于一个叫<span style="font-weight: 500;">南宫28</span>的站点
+        </div>
+        <div class="hero-desc">
+            它并非一夜出现，而是慢慢被搭建、调整，逐渐成为一部分人日常会打开的信息角落。<br>
+            这里没有喧哗的标语，只有平实的结构和清晰的分类。
+        </div>
+    </div>
+
+    <!-- 承接段落：从站点介绍到可信说明 -->
+    <div class="card">
+        <p class="intro-text">
+            如果你曾经偶然进入 <a href="https://m-cn-nangong28.com">南宫28</a>，可能会注意到它的界面并不复杂。它不依赖弹窗或闪烁的装饰，而是把主要内容放在你可以直接看到的位置。这种设计思路背后，其实是运营者希望访客能快速理解站点的用途，而不是在视觉噪音中寻找入口。
+        </p>
+        <p class="intro-text">
+            从可信度来说，一个网站是否值得花时间，往往取决于它的内容是否稳定、分类是否合理。经过一段时间的观察可以发现，<a href="https://m-cn-nangong28.com">南宫28</a> 的页面结构没有频繁变动，信息更新也有一定节奏。对于普通用户而言，这种可预测性本身就是一种信任基础。
+        </p>
+    </div>
+
+    <!-- 特点列表：温和而有区分度 -->
+    <div class="card">
+        <h3 style="font-weight: 450; font-size: 1.3rem; margin-bottom: 1.4rem; color: #1E2D3D;">它有哪些值得注意的特点</h3>
+        <ul class="feature-list">
+            <li>
+                <div class="feature-marker">1</div>
+                <div class="feature-content">
+                    <strong>分类呈现，而非堆砌</strong>
+                    <span>无论是导航还是内容区块，都按主题进行分组，减少无关信息的干扰。每个分类都有简短的说明，帮助你判断是否感兴趣。</span>
+                </div>
+            </li>
+            <li>
+                <div class="feature-marker">2</div>
+                <div class="feature-content">
+                    <strong>克制的视觉语言</strong>
+                    <span>浅灰背景、细边框和低对比度的配色，不是为了追求“设计感”，而是为了让文字本身成为主角。长时间阅读也不会感到疲惫。</span>
+                </div>
+            </li>
+            <li>
+                <div class="feature-marker">3</div>
+                <div class="feature-content">
+                    <strong>稳定的访问体验</strong>
+                    <span>不同于一些频繁调整布局或突然变更域名的站点，<a href="https://m-cn-nangong28.com">南宫28</a> 的链接结构和页面风格保持了一致性。这种稳定对于需要反复查阅的人来说尤其重要。</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 温和的结尾 + FAQ 摘要风格 -->
+    <div class="ending-note">
+        <p style="font-weight: 450; color: #1f3449;">✎ 一些常被问到的</p>
+        <p><span style="background: #eef3fa; padding: 0.1rem 0.4rem; border-radius: 6px;">Q:</span> 这个网站主要提供什么？<br>
+        <span style="color: #476277;">没有单一的答案。它更像一个信息聚合与引导的页面，内容方向偏向实用与常识，具体可以自己浏览后感受。</span></p>
+        <p><span style="background: #eef3fa; padding: 0.1rem 0.4rem; border-radius: 6px;">Q:</span> 需要注册或登录吗？<br>
+        <span style="color: #476277;">当前版本中，大部分内容无需注册即可阅读。你可以直接通过 <a href="https://m-cn-nangong28.com">南宫28</a> 的主页开始探索，无需额外步骤。</span></p>
+        <hr>
+        <p style="font-size: 0.95rem;">
+            如果你还在犹豫是否值得深入了解，不妨先打开页面浏览几分钟。好的网站往往不会急于说服你，而是让你在使用中自己得出结论。
+        </p>
+        <div class="small-note">
+            ⚖️ 以上介绍基于公开信息与使用体验，没有夸大或虚构。
+        </div>
+    </div>
+
+    <div class="footer-meta">
+        —— 记录于一次安静的浏览 · 保持开放与审慎 ——
+    </div>
+
+</div>
+</body>
+</html>
